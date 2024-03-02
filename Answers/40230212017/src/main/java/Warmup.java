@@ -23,7 +23,23 @@ public class Warmup {
      * @return if searchForEven is true ? return the number of even numbers : return the number of odd numbers
      */
     public int oddEvenCounter(String number, boolean searchForEven) {
-        return -1;
+        int odd = 0;
+        int even = 0;
+        char[] chars = number.toCharArray();
+            for(char c : chars){
+                switch(c){
+                    case '1': case '3': case '5': case '7': case '9':
+                    odd++;
+                    break;
+                    case '2': case '4': case '6': case '8': case '0':
+                    even++;
+                    break;
+                }
+            }
+            if(searchForEven == true)
+            return even;
+            else
+            return odd;
     }
 
     /**
