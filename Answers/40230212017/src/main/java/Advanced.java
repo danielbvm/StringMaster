@@ -37,7 +37,17 @@ public class Advanced {
      *         firstName & lastName is Capitalized (example : Harry Potter)
      */
     public String normalizingName(String firstName, String lastName) {
-        return null;
+        String firstName2 = firstName.toLowerCase();
+        firstName2 = firstName2.substring(0,1).toUpperCase() + firstName2.substring(1);
+        String lastName2 = lastName.toLowerCase();
+        lastName2 = lastName2.substring(0,1).toUpperCase() + lastName2.substring(1);
+        if(lastName == " "){
+            return firstName2;
+        }
+        else{
+            return firstName2 + " " + lastName2;
+        }
+        
     }
 
     /**
@@ -48,6 +58,21 @@ public class Advanced {
      *         letters should be omitted
      */
     public String doubleChar(String word) {
-        return null;
+        if (word == null || word.isEmpty()) {
+            return word;
+        }
+    
+        StringBuilder sb = new StringBuilder();
+        char[] charArray = word.toCharArray();
+        sb.append(charArray[0]); // Append the first character since it's never a duplicate
+    
+        for (int i = 1; i < word.length(); i++) {
+            // Check if the current character is different from the previous one
+            if (charArray[i] != charArray[i - 1]) {
+                sb.append(charArray[i]); // Append the character if it's not a duplicate
+            }
+        }
+    
+        return sb.toString();
     }
 }
